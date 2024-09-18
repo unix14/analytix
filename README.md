@@ -1,6 +1,6 @@
 # analytix
 
-A Flutter library for custom analitics manager
+A Flutter library for custom analytics manager
 
 ## Getting Started
 
