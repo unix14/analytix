@@ -2,7 +2,11 @@
 import 'package:analitix/analitix/abstract/analytix_manager.dart';
 import 'package:analitix/custom_reporters/screen_logger_reporter.dart';
 import 'package:analitix/ui/screen_view_example_screen.dart';
+import 'package:analitix/ui/simple_funnels_example_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../funnels_manager/funnels.dart';
+import '../funnels_manager/funnels_manager.dart';
 
 class SimpleEventExampleScreen extends StatefulWidget {
   @override
@@ -51,12 +55,21 @@ class _SimpleEventExampleScreenState extends State<SimpleEventExampleScreen> {
             } : null,
           ),
           IconButton(
+            tooltip: "Funnels Manager",
+            icon: const Icon(Icons.filter_alt_outlined),
+            onPressed: () async {
+              _showSnackBar("Open Funnels Manager");
+              FunnelsManager().finish(Funnels.funnel_1, "finish");
+              await _goToScreen(const SimpleFunnelExampleScreen());
+              FunnelsManager().finish(Funnels.funnel_2, "finish");
+            },
+          ),
+          IconButton(
             tooltip: "Navigate to new Screen",
             icon: const Icon(Icons.screen_rotation_outlined),
             onPressed: () async {
               _showSnackBar("Open new Screen");
-              await Navigator.push(context, MaterialPageRoute(builder: (context) => const ScreenViewExampleScreen()));
-              setState(() {});
+              await _goToScreen(const ScreenViewExampleScreen());
             },
           ),
           // disable / enable button  for data collection
@@ -130,8 +143,13 @@ class _SimpleEventExampleScreenState extends State<SimpleEventExampleScreen> {
   _showSnackBar(String message) {
     SnackBar snackBar = SnackBar(
       content: Text(message),
-      duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 1),
     );
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
+  _goToScreen(StatefulWidget newScreen) async {
+    await Navigator.push(context, MaterialPageRoute(builder: (context) => newScreen));
+    setState(() {});
   }
 }
