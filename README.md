@@ -6,6 +6,7 @@ A Flutter library for custom analytics management, designed to streamline integr
 
 - **Custom Event Tracking**: Easily log and manage events in your application.
 - **Screen View Logging**: Track screen views to gain insights into user navigation.
+- ** **Funnels Manager**: Tracks the time it takes the users go through a journey in our app.
 - **Robust Reporting**: Access detailed reports on user interactions and events.
 
 ## Getting Started
@@ -89,6 +90,34 @@ class _SimpleEventExampleScreenState extends State<SimpleEventExampleScreen> {
   }
 }
 ```
+
+## Funnels Manager
+
+### Purpose
+The `FunnelsManager` is a tool designed to track the sequence of user interactions or events in a specific flow, commonly referred to as a "funnel." A funnel is a defined series of steps that a user follows, and by tracking how users interact with these steps, you can gather insights on engagement, abandonment points, and overall user behavior.
+
+### Implementation
+
+1. **Create and Start a Funnel**
+To start tracking a funnel, you need to define a funnel using the `AnalytixFunnel` class and register it with the `FunnelsManager`. Here’s an example of how to start a funnel:
+
+   ```dart
+   FunnelsManager().start(AnalytixFunnel(Funnels.funnel_2, shouldCountTime: true));
+   ```
+    •	Funnels.funnel_2 is the name of the funnel you’re tracking.
+    •	The shouldCountTime flag tracks the time a user spends on each step of the funnel.
+2.  **Tracking Events in the Funnel**
+After starting the funnel, you can track specific events or steps within the funnel. For example:
+   ```dart
+    FunnelsManager().track(Funnels.funnel_3, "step_1");
+   ```
+This code logs the event "step_1" within the funnel_3.
+3.	**Finishing a Funnel**
+  Once the funnel is complete (i.e., when the user completes all the steps), make sure to finish the funnel to capture the final event and any time-related data:
+  ```dart
+    FunnelsManager().finish(Funnels.funnel_2, "finish");
+  ```
+This marks the funnel as finished and logs the final event.
 
 For help getting started with Flutter development, view the online
 [documentation](https://flutter.dev/).
