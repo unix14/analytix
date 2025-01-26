@@ -3,4 +3,6 @@
 /// More dartdocs go here.
 library;
 
-export 'src/analytix_base.dart';
+export 'src/abstract/base_reporter.dart';
+export 'src/abstract/analytix_manager.dart';
+export 'src/models/analytix_event.dart';
