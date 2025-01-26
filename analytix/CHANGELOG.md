@@ -9,3 +9,7 @@
 ## 1.0.2
 
 - Fixed export issue.
+
+## 1.0.3
+
+- Removed Custom Reporter class and moved it into the example folder. 

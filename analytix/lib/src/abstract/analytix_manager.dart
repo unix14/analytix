@@ -2,11 +2,8 @@
 
 
 import 'package:analytix/src/abstract/base_reporter.dart';
-import 'package:analytix/src/reporters/custom_reporter.dart';
-import 'package:analytix/src/reporters/printer_reporter.dart';
 
 import '../models/analytix_event.dart';
-import '../reporters/excel_reporter.dart';
 
 class AnalytixManager {
 
@@ -25,11 +22,7 @@ class AnalytixManager {
 
   AnalytixManager._internal();
 
-  List<BaseReporter> reporters = [
-    PrinterReporter(),
-    CustomReporter(),
-    ExcelReporter(),
-  ];
+  List<BaseReporter> reporters = [];
 
   void init() {
     print('AnalytixManager init');

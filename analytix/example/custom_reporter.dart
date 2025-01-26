@@ -1,6 +1,5 @@
 
-import 'package:analytix/src/models/analytix_event.dart';
-import '../abstract/base_reporter.dart';
+import 'package:analytix/analytix.dart';
 
 /// CustomReporter class
 /// This class is an example of a custom reporter that extends the BaseReporter class

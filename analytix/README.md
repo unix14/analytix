@@ -16,7 +16,7 @@ To use the Analytix library, add the following dependency to your `pubspec.yaml`
 
 ```yaml
 dependencies:
-  analytix: ^1.0.0  # Replace with the latest version
+  analytix: ^1.0.3  # Replace with the latest version
 ```
 
 ### Importing the Library
