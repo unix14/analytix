@@ -16,14 +16,14 @@ To use the Analytix library, add the following dependency to your `pubspec.yaml`
 
 ```yaml
 dependencies:
-  analytix: ^1.0.3  # Replace with the latest version
+  analytix: ^1.0.4  # Replace with the latest version
 ```
 
 ### Importing the Library
 Import the library in your Dart files:
 
 ```dart
-import 'package:analitix/analitix.dart';
+import 'package:analytix/analytix.dart';
 ```
 
 ### Basic Usage
@@ -31,7 +31,7 @@ Here’s a quick example of how to integrate Analytix into your Flutter applicat
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:analitix/analitix/abstract/analytix_manager.dart';
+import 'package:analytix/analytix/abstract/analytix_manager.dart';
 
 void main() {
   runApp(MyApp());

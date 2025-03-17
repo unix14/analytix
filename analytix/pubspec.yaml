@@ -1,6 +1,6 @@
 name: analytix
 description: A Flutter library for custom analytics manager, capable of sending events to multiple analytics services. Also, it provides a way to gather information about the user's device and the app itself.
-version: 1.0.3
+version: 1.0.4
 repository: https://github.com/unix14/analytix
 homepage: https://github.com/unix14/analytix
 

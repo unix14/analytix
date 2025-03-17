@@ -13,3 +13,7 @@
 ## 1.0.3
 
 - Removed Custom Reporter class and moved it into the example folder. 
+
+## 1.0.4
+
+- Updated README.md file.
