@@ -13,7 +13,7 @@ class AnalytixFunnel extends Funnel {
   @override
   void track(String eventName) {
     super.track(eventName);
-    var shouldReport = !kDebugMode || true;
+    var shouldReport = !kDebugMode;
     if(shouldReport) {
       var shouldReportFunnelDuration = shouldCountTime && endTime != null && startTime != null;
       var durationTime = shouldReportFunnelDuration ? endTime!.difference(startTime!).inMilliseconds : 0;

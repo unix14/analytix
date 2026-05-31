@@ -31,6 +31,6 @@ abstract class Funnel {
     if (shouldCountTime) {
       endTime = DateTime.now();
     }
-    print("Funnel Tracking:: End: $funnelName ${shouldCountTime ? ", Duration: ${endTime!.difference(startTime!)}" : ""}");
+    print("Funnel Tracking:: End: $funnelName ${shouldCountTime && startTime != null && endTime != null ? ", Duration: ${endTime!.difference(startTime!)}" : ""}");
   }
 }

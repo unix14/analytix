@@ -8,7 +8,7 @@ import '../models/analytix_event.dart';
 class PrinterReporter extends BaseReporter {
 
   @override
-  void init() {
+  Future<void> init() async {
     print('PrinterAnalytixReporter init');
   }
 

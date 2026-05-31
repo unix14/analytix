@@ -13,9 +13,9 @@ class ExcelReporter extends BaseReporter {
   File? currentFile;
 
   @override
-  void init() {
+  Future<void> init() async {
     // create the excel file
-    _createExcelFile();
+    await _createExcelFile();
   }
 
   @override
@@ -28,23 +28,21 @@ class ExcelReporter extends BaseReporter {
     return await currentFile?.exportToCsv(events);
   }
 
-  _createExcelFile() {
-    Future.sync(() async {
-      // Get the local path
-      final directory = await getApplicationDocumentsDirectory();
-      final path = directory.path;
+  Future<void> _createExcelFile() async {
+    // Get the local path
+    final directory = await getApplicationDocumentsDirectory();
+    final path = directory.path;
 
-      // Get the current date and time
-      final now = DateTime.now();
+    // Get the current date and time
+    final now = DateTime.now();
 
-      // Format the date and time as a string
-      final formattedDateTime = "${now.day}_${now.month}_${now.year}_${now.hour}_${now.minute}_${now.second}";
+    // Format the date and time as a string
+    final formattedDateTime = "${now.day}_${now.month}_${now.year}_${now.hour}_${now.minute}_${now.second}";
 
-      // Create a new file with a unique name
-      String filePath = '$path/CSV_$formattedDateTime.csv';
-      print("ExcelReporter: Creating a file: $filePath");
-      currentFile = File(filePath);
-      print('ExcelReporter: Excel file created');
-    });
+    // Create a new file with a unique name
+    String filePath = '$path/CSV_$formattedDateTime.csv';
+    print("ExcelReporter: Creating a file: $filePath");
+    currentFile = File(filePath);
+    print('ExcelReporter: Excel file created');
   }
 }

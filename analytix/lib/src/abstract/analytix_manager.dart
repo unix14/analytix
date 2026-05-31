@@ -50,20 +50,20 @@ class AnalytixManager {
     Map<String, dynamic> newParams = {};
     newParams.addAll(params);
 
+    newParams['screenName'] = _screenName;
+    newParams['userId'] = _userId;
+    newParams['userProperties'] = _userProperties;
+    newParams['deviceProperties'] = _deviceProperties;
+    newParams['eventTime'] = DateTime.now();
+    var newEvent = AnalytixEvent(name, subEventName: subEventName, parameters: newParams);
+    _allEvents.add(newEvent);
     for(BaseReporter reporter in reporters) {
-      newParams['screenName'] = _screenName;
-      newParams['userId'] = _userId;
-      newParams['userProperties'] = _userProperties;
-      newParams['deviceProperties'] = _deviceProperties;
-      newParams['eventTime'] = DateTime.now();
-      var newEvent = AnalytixEvent(name, subEventName: subEventName, parameters: newParams);
       reporter.logEvent(newEvent);
-      _allEvents.add(newEvent);
     }
   }
 
   void addReporters(List<BaseReporter> reporters) {
-    reporters.addAll(reporters);
+    this.reporters.addAll(reporters);
   }
 
   void addReporter(BaseReporter reporter) {
@@ -71,7 +71,7 @@ class AnalytixManager {
   }
 
   void removeReporters(List<BaseReporter> reporters) {
-    reporters.removeWhere((element) => reporters.contains(element));
+    this.reporters.removeWhere((element) => reporters.contains(element));
   }
 
   void removeReporter(BaseReporter reporter) {
@@ -84,7 +84,7 @@ class AnalytixManager {
 
   void setDeviceProperties(Map<String, dynamic> properties) {
     print('AnalytixManager setDeviceProperties: $properties');
-    _userProperties.addAll(properties);
+    _deviceProperties.addAll(properties);
   }
 
   void setUserProperty(String name, dynamic value) {

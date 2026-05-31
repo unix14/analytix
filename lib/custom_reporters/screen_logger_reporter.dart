@@ -14,7 +14,7 @@ class ScreenLoggerReporter extends BaseReporter {
   List<String> allReports = [];
 
   @override
-  void init() {
+  Future<void> init() async {
     print('ScreenLoggerReporter: init');
   }
 

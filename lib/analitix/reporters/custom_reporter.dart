@@ -14,7 +14,7 @@ import '../abstract/base_reporter.dart';
 class CustomReporter extends BaseReporter {
 
   @override
-  void init() {
+  Future<void> init() async {
     print('CustomReporter: init');
     /// TODO: implement init
   }
